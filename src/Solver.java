@@ -101,5 +101,6 @@ public class Solver extends JFrame {
   public static void main(String args[]) {
     Solver testMaze = new Solver();
     testMaze.setVisible(true);
+    //testing a push up to GitHub
   }
 }
