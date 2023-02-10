@@ -29,15 +29,28 @@ public class Direction extends Thread{
 					location.textArea.append("Moved to row " + maze.getCurrRow() + ", column " + maze.getCurrCol() + "\n");
 				else if(maze.getCurrCol() % 2 == 1 && this.maze.moveUp())
 					location.textArea.append("Moved to row " + maze.getCurrRow() + ", column " + maze.getCurrCol() + "\n");
-				else if(this.maze.moveRight()){
-					location.textArea.append("Moved to row " + maze.getCurrRow() + ", column " + maze.getCurrCol() + "\n");
+				else if (maze.getCurrCol() % 2 == 0 && this.maze.getCurrRow() != this.maze.getHeight()-1){
+					this.maze.moveRight();
+					this.maze.moveDown();
+					this.maze.moveDown();
+					this.maze.moveLeft();
 				}
-				else if(this.maze.moveLeft()){
+				else if (maze.getCurrCol() % 2 == 1 && this.maze.getCurrRow() != 0){
+					this.maze.moveLeft();
+					this.maze.moveUp();
+					this.maze.moveUp();
+					this.maze.moveRight();
+				}
+				else if(this.maze.moveRight()){
 					location.textArea.append("Moved to row " + maze.getCurrRow() + ", column " + maze.getCurrCol() + "\n");
 				}
 				else {
 					break;
 				}
+				if(maze.isDone()){
+					System.out.println("Done");
+				}
+
 			}
 
 			if(maze.isDone())
@@ -45,10 +58,9 @@ public class Direction extends Thread{
 			else
 				location.textArea.append("Failure" + "\n");
 
-//			location.textArea.append("Logo Found \n");
-		
-		
-	}
+
+
+		}
    
 	
 }
