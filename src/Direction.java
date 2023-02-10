@@ -21,15 +21,32 @@ public class Direction extends Thread{
 	// and updates the information in Position.java GUI class, append text into the JTextArea object
 	// you should delete/update this code and start your solution, you may just keep the part of updating the information
 	// in the Position.java class, appending information into the JTextArea object
+
+
+			while(!maze.isDone()) {
+
+				if(maze.getCurrCol() % 2 == 0 && this.maze.moveDown())
+					location.textArea.append("Moved to row " + maze.getCurrRow() + ", column " + maze.getCurrCol() + "\n");
+				else if(maze.getCurrCol() % 2 == 1 && this.maze.moveUp())
+					location.textArea.append("Moved to row " + maze.getCurrRow() + ", column " + maze.getCurrCol() + "\n");
+				else if(this.maze.moveRight()){
+					location.textArea.append("Moved to row " + maze.getCurrRow() + ", column " + maze.getCurrCol() + "\n");
+				}
+				else if(this.maze.moveLeft()){
+					location.textArea.append("Moved to row " + maze.getCurrRow() + ", column " + maze.getCurrCol() + "\n");
+				}
+				else {
+					break;
+				}
+			}
+
+			if(maze.isDone())
+				location.textArea.append("Success" + "\n");
+			else
+				location.textArea.append("Failure" + "\n");
+
+//			location.textArea.append("Logo Found \n");
 		
-		while(!maze.isDone()) {
-				
-		if(this.maze.moveDown())
-		location.textArea.append("Moved to row " + maze.getCurrRow() + ", column " + maze.getCurrCol() + "\n");
-				
-		}	
-		
-		location.textArea.append("Logo Found \n");
 		
 	}
    
