@@ -31,13 +31,46 @@ public class Direction extends Thread{
 	// using the provided path/direction algorithm
 	
         public void run(){
+  			// Shows it moves
+//			if(this.maze.moveRight())
+//				location.textArea.append("Success" + "\n");
+//			else
+//				location.textArea.append("Failure" + "\n");
+//			if(this.maze.moveLeft())
+//				location.textArea.append("Success" + "\n");
+//			else
+//				location.textArea.append("Failure" + "\n");
+//			if(this.maze.moveUp())
+//				location.textArea.append("Success" + "\n");
+//			else
+//				location.textArea.append("Failure" + "\n");
+//			if(this.maze.moveDown())
+//				location.textArea.append("Success" + "\n");
+//			else
+//				location.textArea.append("Failure" + "\n");
 
-	// This is a SAMPLE code for moving the student image in the maze
-	// and updates the information in Position.java GUI class, append text into the JTextArea object
-	// you should delete/update this code and start your solution, you may just keep the part of updating the information
-	// in the Position.java class, appending information into the JTextArea object
+			// Shows that it can find target
+//			for(int i = 0; i < 10; i++){
+//				if(this.maze.moveRight()) {
+//					location.textArea.append("Moved to row " + maze.getCurrRow() + ", column " + maze.getCurrCol() + "\n");
+//					location.textArea.append("Success" + "\n");
+//				}
+//				else{
+//					location.textArea.append("Failure" + "\n");
+//				}
+//			}
+//			for(int i = 0; i < 2; i++){
+//				if(this.maze.moveDown()) {
+//					location.textArea.append("Moved to row " + maze.getCurrRow() + ", column " + maze.getCurrCol() + "\n");
+//					location.textArea.append("Success" + "\n");
+//				}
+//				else{
+//					location.textArea.append("Failure" + "\n");
+//				}
+//
+//			}
 
-
+			// Part 2
 			while(!maze.isDone()) {
 
 				if(maze.getCurrCol() % 2 == 0 && this.maze.moveDown())
@@ -78,18 +111,7 @@ public class Direction extends Thread{
 				else {
 					break;
 				}
-
-
 			}
 
-			if(maze.isDone())
-				location.textArea.append("Success" + "\n");
-			else
-				location.textArea.append("Failure" + "\n");
-
-
-
 		}
-   
-	
 }
