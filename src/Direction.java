@@ -1,3 +1,18 @@
+//*********************************************************************
+//*                                                                   *
+//* CIS611                   Spring 2023               Trenton Schien *
+//*                                                    Jose Escobar   *
+//*                     Program Project PP01                          *
+//*                                                                   *
+//*          This is used to solve mazes in the worst way             *
+//*                                                                   *
+//*                                                                   *
+//*                           2-13-2023                                *
+//*                                                                   *
+//*                  Saved in: Direction.java                         *
+//*                                                                   *
+//*********************************************************************
+
 // This class must have the code in the run() method to solve the maze
 // It searches for the Java logo based on the provided path/direction algorithm in Part II
 
@@ -5,7 +20,7 @@ public class Direction extends Thread{
 
 	Maze maze;
 	Position location;
-	
+
 	Direction(Maze maze, Position location) {
 		
 		this.maze = maze;
@@ -30,16 +45,32 @@ public class Direction extends Thread{
 				else if(maze.getCurrCol() % 2 == 1 && this.maze.moveUp())
 					location.textArea.append("Moved to row " + maze.getCurrRow() + ", column " + maze.getCurrCol() + "\n");
 				else if (maze.getCurrCol() % 2 == 0 && this.maze.getCurrRow() != this.maze.getHeight()-1){
-					this.maze.moveRight();
-					this.maze.moveDown();
-					this.maze.moveDown();
-					this.maze.moveLeft();
+					if(this.maze.moveRight()){
+						location.textArea.append("Moved to row " + maze.getCurrRow() + ", column " + maze.getCurrCol() + "\n");
+					}
+					if(!maze.isDone() && this.maze.moveDown()){
+						location.textArea.append("Moved to row " + maze.getCurrRow() + ", column " + maze.getCurrCol() + "\n");
+					}
+					if(!maze.isDone() && this.maze.moveDown()){
+						location.textArea.append("Moved to row " + maze.getCurrRow() + ", column " + maze.getCurrCol() + "\n");
+					}
+					if(!maze.isDone() && this.maze.moveLeft()){
+						location.textArea.append("Moved to row " + maze.getCurrRow() + ", column " + maze.getCurrCol() + "\n");
+					}
 				}
 				else if (maze.getCurrCol() % 2 == 1 && this.maze.getCurrRow() != 0){
-					this.maze.moveLeft();
-					this.maze.moveUp();
-					this.maze.moveUp();
-					this.maze.moveRight();
+					if(this.maze.moveLeft()){
+						location.textArea.append("Moved to row " + maze.getCurrRow() + ", column " + maze.getCurrCol() + "\n");
+					}
+					if(!maze.isDone() && this.maze.moveUp()){
+						location.textArea.append("Moved to row " + maze.getCurrRow() + ", column " + maze.getCurrCol() + "\n");
+					}
+					if(!maze.isDone() && this.maze.moveUp()){
+						location.textArea.append("Moved to row " + maze.getCurrRow() + ", column " + maze.getCurrCol() + "\n");
+					}
+					if(!maze.isDone() && this.maze.moveRight()){
+						location.textArea.append("Moved to row " + maze.getCurrRow() + ", column " + maze.getCurrCol() + "\n");
+					}
 				}
 				else if(this.maze.moveRight()){
 					location.textArea.append("Moved to row " + maze.getCurrRow() + ", column " + maze.getCurrCol() + "\n");
@@ -47,9 +78,7 @@ public class Direction extends Thread{
 				else {
 					break;
 				}
-				if(maze.isDone()){
-					System.out.println("Done");
-				}
+
 
 			}
 
