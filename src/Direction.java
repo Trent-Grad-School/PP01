@@ -4,7 +4,7 @@
 //*                                                    Jose Escobar   *
 //*                     Program Project PP01                          *
 //*                                                                   *
-//*          This is used to solve mazes in the worst way             *
+//*          This is used to solve this.mazes in the worst way             *
 //*                                                                   *
 //*                                                                   *
 //*                           2-13-2023                                *
@@ -13,7 +13,7 @@
 //*                                                                   *
 //*********************************************************************
 
-// This class must have the code in the run() method to solve the maze
+// This class must have the code in the run() method to solve the this.maze
 // It searches for the Java logo based on the provided path/direction algorithm in Part II
 
 public class Direction extends Thread{
@@ -22,14 +22,14 @@ public class Direction extends Thread{
 	Position location;
 
 	Direction(Maze maze, Position location) {
-		
+
 		this.maze = maze;
 		this.location = location;
 	}
-	
-	// This is the code part that needs to be programmed by students to solve the maze 
+
+	// This is the code part that needs to be programmed by students to solve the this.maze
 	// using the provided path/direction algorithm
-	
+
         public void run(){
   			// Shows it moves
 //			if(this.maze.moveRight())
@@ -52,7 +52,7 @@ public class Direction extends Thread{
 			// Shows that it can find target
 //			for(int i = 0; i < 10; i++){
 //				if(this.maze.moveRight()) {
-//					location.textArea.append("Moved to row " + maze.getCurrRow() + ", column " + maze.getCurrCol() + "\n");
+//					location.textArea.append("Moved to row " + this.maze.getCurrRow() + ", column " + this.maze.getCurrCol() + "\n");
 //					location.textArea.append("Success" + "\n");
 //				}
 //				else{
@@ -61,7 +61,7 @@ public class Direction extends Thread{
 //			}
 //			for(int i = 0; i < 2; i++){
 //				if(this.maze.moveDown()) {
-//					location.textArea.append("Moved to row " + maze.getCurrRow() + ", column " + maze.getCurrCol() + "\n");
+//					location.textArea.append("Moved to row " + this.maze.getCurrRow() + ", column " + this.maze.getCurrCol() + "\n");
 //					location.textArea.append("Success" + "\n");
 //				}
 //				else{
@@ -71,46 +71,52 @@ public class Direction extends Thread{
 //			}
 
 			// Part 2
-			while(!maze.isDone()) {
+			location.textArea.append("Start row " + this.maze.getCurrRow() + ", column " + this.maze.getCurrCol() + "\n");
 
-				if(maze.getCurrCol() % 2 == 0 && this.maze.moveDown())
-					location.textArea.append("Moved to row " + maze.getCurrRow() + ", column " + maze.getCurrCol() + "\n");
-				else if(maze.getCurrCol() % 2 == 1 && this.maze.moveUp())
-					location.textArea.append("Moved to row " + maze.getCurrRow() + ", column " + maze.getCurrCol() + "\n");
-				else if (maze.getCurrCol() % 2 == 0 && this.maze.getCurrRow() != this.maze.getHeight()-1){
+			while(!this.maze.isDone()) {
+
+				if(this.maze.getCurrCol() % 2 == 0 && this.maze.moveDown())
+					location.textArea.append("Moved to row " + this.maze.getCurrRow() + ", column " + this.maze.getCurrCol() + "\n");
+				else if(this.maze.getCurrCol() % 2 == 1 && this.maze.moveUp())
+					location.textArea.append("Moved to row " + this.maze.getCurrRow() + ", column " + this.maze.getCurrCol() + "\n");
+				else if (this.maze.getCurrCol() % 2 == 0 && this.maze.getCurrRow() != this.maze.getHeight()-1){
 					if(this.maze.moveRight()){
-						location.textArea.append("Moved to row " + maze.getCurrRow() + ", column " + maze.getCurrCol() + "\n");
+						location.textArea.append("Moved to row " + this.maze.getCurrRow() + ", column " + this.maze.getCurrCol() + "\n");
 					}
-					if(!maze.isDone() && this.maze.moveDown()){
-						location.textArea.append("Moved to row " + maze.getCurrRow() + ", column " + maze.getCurrCol() + "\n");
+					if(!this.maze.isDone() && this.maze.moveDown()){
+						location.textArea.append("Moved to row " + this.maze.getCurrRow() + ", column " + this.maze.getCurrCol() + "\n");
 					}
-					if(!maze.isDone() && this.maze.moveDown()){
-						location.textArea.append("Moved to row " + maze.getCurrRow() + ", column " + maze.getCurrCol() + "\n");
+					if(!this.maze.isDone() && this.maze.moveDown()){
+						location.textArea.append("Moved to row " + this.maze.getCurrRow() + ", column " + this.maze.getCurrCol() + "\n");
 					}
-					if(!maze.isDone() && this.maze.moveLeft()){
-						location.textArea.append("Moved to row " + maze.getCurrRow() + ", column " + maze.getCurrCol() + "\n");
+					if(!this.maze.isDone() && this.maze.moveLeft()){
+						location.textArea.append("Moved to row " + this.maze.getCurrRow() + ", column " + this.maze.getCurrCol() + "\n");
 					}
 				}
-				else if (maze.getCurrCol() % 2 == 1 && this.maze.getCurrRow() != 0){
+				else if (this.maze.getCurrCol() % 2 == 1 && this.maze.getCurrRow() != 0){
 					if(this.maze.moveLeft()){
-						location.textArea.append("Moved to row " + maze.getCurrRow() + ", column " + maze.getCurrCol() + "\n");
+						location.textArea.append("Moved to row " + this.maze.getCurrRow() + ", column " + this.maze.getCurrCol() + "\n");
 					}
-					if(!maze.isDone() && this.maze.moveUp()){
-						location.textArea.append("Moved to row " + maze.getCurrRow() + ", column " + maze.getCurrCol() + "\n");
+					if(!this.maze.isDone() && this.maze.moveUp()){
+						location.textArea.append("Moved to row " + this.maze.getCurrRow() + ", column " + this.maze.getCurrCol() + "\n");
 					}
-					if(!maze.isDone() && this.maze.moveUp()){
-						location.textArea.append("Moved to row " + maze.getCurrRow() + ", column " + maze.getCurrCol() + "\n");
+					if(!this.maze.isDone() && this.maze.moveUp()){
+						location.textArea.append("Moved to row " + this.maze.getCurrRow() + ", column " + this.maze.getCurrCol() + "\n");
 					}
-					if(!maze.isDone() && this.maze.moveRight()){
-						location.textArea.append("Moved to row " + maze.getCurrRow() + ", column " + maze.getCurrCol() + "\n");
+					if(!this.maze.isDone() && this.maze.moveRight()){
+						location.textArea.append("Moved to row " + this.maze.getCurrRow() + ", column " + this.maze.getCurrCol() + "\n");
 					}
 				}
 				else if(this.maze.moveRight()){
-					location.textArea.append("Moved to row " + maze.getCurrRow() + ", column " + maze.getCurrCol() + "\n");
+					location.textArea.append("Moved to row " + this.maze.getCurrRow() + ", column " + this.maze.getCurrCol() + "\n");
 				}
 				else {
 					break;
 				}
+			}
+
+			if(this.maze.isDone()){
+				location.textArea.append("Logo Found" + "\n");
 			}
 
 		}
